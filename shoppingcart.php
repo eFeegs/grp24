@@ -1,4 +1,6 @@
-<html><head><title>Shopping Cart</title></head><body><pre>
+<html><head><title>Shopping Cart</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head><body><pre>
 <?php
 $username='z1944395';
 $password='1997Apr02';
@@ -37,24 +39,30 @@ $password='1997Apr02';
       $total = $qty * $price;
       $ptotal = $total + $ptotal;
       echo "<form action='http://students.cs.niu.edu/~z1944395/shoppingcart.php'>
-           Name:
-           <a href='http://students.cs.niu.edu/~z1944395/productdetail.php?user=$user&id=$pid'>$name</a>
-           Quantity:
-           $qty
-           Price:
-           $$price
-           Total:
-           $$total
-           <input type='hidden' id='user' name='user' value=$user>
-           <input type='number' id='q' name='q' step='1' max=$pqty value=$qty>
-           <input type='hidden' id='oid' name='oid' value=$id>
-           <input type='submit' value='Update Item'>
+            <div class='card ms-5 w-25'>
+              <div class='card-body'>
+                <h5 class='card-title'><a href='http://students.cs.niu.edu/~z1944395/productdetail.php?user=$user&id=$pid'>$name</a></h5>
+                <p class='card-text'><b>Quantity: </b>$qty </p>
+                <p class='card-text'><b>Price: </b>$$price </p>
+                <p class='card-text'><b>Total: </b>$$total </p>
+                <div class='card-footer'>
+                  <input type='hidden' id='user' name='user' value=$user>
+                  <input type='number' id='q' name='q' step='1' max=$pqty value=$qty>
+                  <input type='hidden' id='oid' name='oid' value=$id>
+                  <input type='submit' value='Update Item' class='btn btn-dark'>
+                </div>
+              </div>
+            </div>
+          </div>
+        
            </form>";
     }
-    echo "<p>Shopping Cart Total: $$ptotal</p>
+
+    echo "
+          <h3 class='ms-5'>Shopping Cart Total: $$ptotal</h3>
           <form action='http://students.cs.niu.edu/~z1944395/checkout.php'>
           <input type='hidden' id='user' name='user' value=$user>
-          <input type='submit' value='Checkout'>
+          <input type='submit' value='Checkout' class='btn btn-dark'>
           </form>";
   }
   catch(PDOexception $e)

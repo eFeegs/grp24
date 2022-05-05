@@ -41,13 +41,13 @@ $password='1997Apr02';
     $price = $row['PRICE'];
     $qty = $row['QUANTITY'];
     $desc = $row['DESCRIPTION'];
-    echo "<h1 class='mb-3'>$pname</h1>";
-    echo "<p class='mb-0'><b>Price:</b> $$price</p>
-          <p class='mt-0'><b>Quantity Left:</b> $qty</p>";
+    echo "<h1 class='mb-3 ms-5'>$pname</h1>";
+    echo "<p class='mb-0 ms-5'><b>Price:</b> $$price</p>
+          <p class='mt-0 ms-5'><b>Quantity Left:</b> $qty</p>";
     if($desc != null) {
-       echo "<p class='mt-0'><b>Description:</b> $desc<p>";
+       echo "<p class='mt-0 ms-5'><b>Description:</b> $desc<p>";
     }
-    echo "<form action='http://students.cs.niu.edu/~z1944395/productdetail.php'>
+    echo "<form action='http://students.cs.niu.edu/~z1944395/productdetail.php' class='ms-5'>
          <input type='hidden' id='status' name='status' value = 'Shopping'>
          <input type='hidden' id='user' name='user' value=$user>
          <input type='hidden' id='id' name='id' value=$id>
