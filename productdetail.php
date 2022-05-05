@@ -1,4 +1,6 @@
-<html><head><title>Product Detail</title></head><body><pre>
+<html><head><title>Product Detail</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head><body><pre>
 <?php
 $username='z1944395';
 $password='1997Apr02';
@@ -39,18 +41,20 @@ $password='1997Apr02';
     $price = $row['PRICE'];
     $qty = $row['QUANTITY'];
     $desc = $row['DESCRIPTION'];
-    echo "<h1>$pname</h1>";
-    echo "<p>Price: $$price<p>
-          <p>Quantity Left: $qty<p>";
+    echo "<h1 class='mb-3'>$pname</h1>";
+    echo "<p class='mb-0'><b>Price:</b> $$price</p>
+          <p class='mt-0'><b>Quantity Left:</b> $qty</p>";
     if($desc != null) {
-       echo "<p>Description: $desc<p>";
+       echo "<p class='mt-0'><b>Description:</b> $desc<p>";
     }
     echo "<form action='http://students.cs.niu.edu/~z1944395/productdetail.php'>
          <input type='hidden' id='status' name='status' value = 'Shopping'>
          <input type='hidden' id='user' name='user' value=$user>
          <input type='hidden' id='id' name='id' value=$id>
-         <input type='number' id='q' name='q' step='1' max=$qty value='1'>
-         <input type='submit' value='Buy'>
+         <div class='w-25'>
+          <input type='number' id='q' name='q' step='1' min='1' max=$qty value='1' class='form-control'>
+         </div>
+         <input type='submit' value='Buy' class='btn btn-dark'>
          </form>";
     if($itembought) {
       echo "Item already in your shopping cart.";
